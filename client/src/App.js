@@ -1,7 +1,11 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/jquery/dist/jquery.min.js'
+import { BrowserRouter as Router,Routes,Route,Link } from "react-router-dom";
+import {Navbar, Container, Nav, NavDropdown, Form, FormControl, Button} from 'react-bootstrap'
 
+import Create from './Pages/Create/Create.jsx'
+import Read from './Pages/Read/Read.jsx'  
 
 function App() {
   return (
@@ -14,23 +18,56 @@ function App() {
         <label id="" class="me-auto"> (85) 2250.xxxx </label>
         <label id="" class="me-auto me-3"> (85) 99950.xxxx </label>
       </div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar scroll</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-      </div>
-    </nav>
-      <div id="containertudo" class="container mt-5">
-        <div id="containertudo" class="container mt-5">
-          <h1>Inicio</h1>
-      
-          <a id="createbuttonid" routerLink="create" class="btn btn-success">Criar Dados</a>
-          &nbsp;
-          <a id="readbuttonid" routerLink="read" class="btn btn-primary">Ler Dados</a>
-          <router-outlet></router-outlet> 
-        </div>
+      <Navbar bg="light" expand="lg">
+        <Container fluid>
+          <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Collapse id="navbarScroll">
+            <Nav
+              className="me-auto my-2 my-lg-0"
+              style={{ maxHeight: '100px' }}
+              navbarScroll
+            >
+              <Nav.Link href="#action1">Home</Nav.Link>
+              <Nav.Link href="#action2">Link</Nav.Link>
+              <NavDropdown title="Link" id="navbarScrollingDropdown">
+                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+                <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action5">
+                  Something else here
+                </NavDropdown.Item>
+              </NavDropdown>
+              <Nav.Link href="#" disabled>
+                Link
+              </Nav.Link>
+            </Nav>
+            <Form className="d-flex">
+              <FormControl
+                type="search"
+                placeholder="Search"
+                className="me-2"
+                aria-label="Search"
+              />
+              <Button variant="outline-success">Search</Button>
+            </Form>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      <div id="containertudo" class="container mt-5 zp">
+        <h1>Inicio</h1>
+          <Router>
+            <nav>
+              <Link class="btn btn-success" to="/create"> Criar Dados </Link>
+              &nbsp;
+              <Link class="btn btn-primary" to="/read"> Ler Dados </Link>
+            </nav>
+          
+            <Routes>
+              <Route path="/read" element={<Read />}/>
+              <Route path="/create" element={<Create />}/>
+            </Routes>
+          </Router>
       </div>
     </div>
   );
