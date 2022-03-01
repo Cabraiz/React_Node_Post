@@ -2,7 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/jquery/dist/jquery.min.js'
 import { BrowserRouter as Router,Routes,Route,Link } from "react-router-dom";
-import {Navbar, Container, Nav, NavDropdown, Form, FormControl, Button} from 'react-bootstrap'
+import {Navbar, Container, Nav, NavDropdown, Form, FormControl, Button,} from 'react-bootstrap'
 
 import Create from './Pages/Create/Create.jsx'
 import Read from './Pages/Read/Read.jsx'  
@@ -54,13 +54,13 @@ function App() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <div id="containertudo" class="container mt-5 zp">
+      <div class="container mt-5 zp">
         <h1>Inicio</h1>
           <Router>
-            <nav>
+            <nav  class="container mb-3">
               <Link class="btn btn-success" to="/create"> Criar Dados </Link>
               &nbsp;
-              <Link class="btn btn-primary" to="/read"> Ler Dados </Link>
+              <Link class="btn btn-primary" to="/read" > Ler Dados </Link>
             </nav>
           
             <Routes>
