@@ -55,7 +55,7 @@ function App() {
         </Container>
       </Navbar>
       <div class="container mt-5 zp">
-        <h1>Inicio</h1>
+        <h1 class="ms-2">Inicio</h1>
           <Router>
             <nav  class="container mb-3">
               <Link class="btn btn-success" to="/create"> Criar Dados </Link>

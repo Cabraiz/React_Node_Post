@@ -1,7 +1,15 @@
 import React from "react";
-import {Button,Form} from 'react-bootstrap'
+import {Button,Form} from 'react-bootstrap';
+import { useState } from "react";
 
 function Create(){
+    const [CPF, setCPF] = useState("");
+    const [nome, setNome] = useState("");
+    const [sobrenome, setSobrenome] = useState("");
+    const [telefone, setTelefone] = useState("");
+    const [tipo, setTipo] = useState("");
+    const [nasc, setNasc] = useState("");
+
     return (
     <div class="container mt-3">  
         <Form>
