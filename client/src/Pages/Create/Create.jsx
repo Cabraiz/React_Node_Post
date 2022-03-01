@@ -1,50 +1,101 @@
 import React from "react";
+import Axios from "axios";
 import {Button,Form} from 'react-bootstrap';
 import { useState } from "react";
+import { useEffect } from "react";
 
 function Create(){
-    const [CPF, setCPF] = useState("");
-    const [nome, setNome] = useState("");
-    const [sobrenome, setSobrenome] = useState("");
-    const [telefone, setTelefone] = useState("");
-    const [tipo, setTipo] = useState("");
-    const [nasc, setNasc] = useState("");
+    const [values, setValues] = useState();
+    const [lista, setLista] = useState ();
+
+    const handleChangeValues = (value) => {
+        setValues((prevValue) => ({
+            ...prevValue,
+            [value.target.name]: value.target.value,
+        }));
+    };
+
+    const handleClickButton = () => {
+        console.log(values);
+    }
+
+    useEffect(() => {
+        Axios.get("http://localhost:3000/user").then((response) => {
+            console.log(response);
+        });
+    }, []);
 
     return (
     <div class="container mt-3">  
         <Form>
             <div class="col-lg-6 mt-2">
                 <Form.Label> CPF: </Form.Label>
-                <Form.Control type="text" class="form-control" id="cpf" formControlName="cd_pessoa" placeholder="123.456.789-00"/>
+                <Form.Control 
+                type="text" 
+                id="cpf" 
+                class="form-control" 
+                onChange={handleChangeValues} 
+                name="cd_pessoa" 
+                placeholder="123.456.789-00"/>
             </div>
 
             <div class="col-lg-6 mt-2">
                 <Form.Label> Nome: </Form.Label>
-                <Form.Control type="text" class="form-control" formControlName="nm_pessoa" placeholder="Nome"/>
+                <Form.Control
+                 type="text" 
+                 class="form-control" 
+                 onChange={handleChangeValues} 
+                 name="nm_pessoa" 
+                 placeholder="Nome"/>
             </div>
 
             <div class="col-lg-6 mt-2">
                 <Form.Label> Sobrenome: </Form.Label>
-                <Form.Control type="text" class="form-control" formControlName="nm_sobrenome" placeholder="Sobrenome"/>
+                <Form.Control 
+                type="text" 
+                class="form-control" 
+                onChange={handleChangeValues} 
+                name="nm_sobrenome" 
+                placeholder="Sobrenome"/>
             </div>
 
             <div class="col-lg-6 mt-2">
                 <Form.Label> Numero De Telefone: </Form.Label>
-                <Form.Control type="text" class="form-control" id="phone-mask" formControlName="nr_telefone" for="typeNumber" placeholder="(00) 0.0000-0000"/>
+                <Form.Control 
+                type="text" 
+                class="form-control" 
+                onChange={handleChangeValues} 
+                id="phone-mask" 
+                name="nr_telefone" 
+                for="typeNumber" 
+                placeholder="(00) 0.0000-0000"/>
             </div>
 
             <div class="col-lg-6 mt-2">
                 <Form.Label> Tipo Sanguineo: </Form.Label>
-                <Form.Control type="text" class="form-control " formControlName="tp_sangue" placeholder="Tipo Sanguineo"/>
+                <Form.Control 
+                type="text" 
+                class="form-control" 
+                onChange={handleChangeValues} 
+                name="tp_sangue" 
+                placeholder="Tipo Sanguineo"/>
             </div>
 
             <div class="col-lg-6 mt-2">
                 <Form.Label> Data de Nascimento: </Form.Label>
-                <Form.Control type="datetime-local" class="form-control" formControlName="dt_nascimento" placeholder="00/00/0000"/>
+                <Form.Control 
+                type="datetime-local" 
+                class="form-control" 
+                onChange={handleChangeValues}
+                name="dt_nascimento" 
+                placeholder="00/00/0000"/>
             </div>
 
             <div class="col-lg-4 mt-2">
-                <Button class="btn btn-primary btn-lg">Criar</Button>
+                <Button 
+                class="btn btn-primary btn-lg"
+                onClick={() => handleClickButton()}
+                >Criar</Button>
             </div>
 
             <div class="col-lg-4 mt-2">
