@@ -1,0 +1,28 @@
+.sortresp{
+    height: calc(0.001rem + 4vw);
+    font-size: calc(0.001rem + 1.2vw);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: 90%;
+    margin-left: 5%;
+    padding: 0px;
+}
+
+#nopaddingtupla{
+    padding: calc(0.01rem + 0.5vw);
+    margin: 0px;
+}
+
+#btnRemove{
+    height: calc(0.7rem + 2vw);
+    width: calc(0.5rem + 6vw);
+    font-size: calc(0.01rem + 1.2vw);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: calc(0.01rem + 0.6vw);
+}
+
+#btnEditar{
+    height: calc(0.7rem + 2vw);
+    width: calc(0.5rem + 6vw);
+    font-size: calc(0.01rem + 1.2vw);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
