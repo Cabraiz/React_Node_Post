@@ -1,12 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 import Axios from "axios";
 import {Button,Form} from 'react-bootstrap';
-import { useState } from "react";
-import { useEffect } from "react";
 
 function Create(){
     const [values, setValues] = useState();
-    const [lista, setLista] = useState ();
+
+    const handleClickButton = (e) => {
+        e.preventDefault();
+        Axios.post("http://localhost:3000/user",  {
+            cd_pessoa: values.cd_pessoa,
+            nm_pessoa: values.nm_pessoa,
+            nm_sobrenome: values.nm_sobrenome,
+            nr_telefone: values.nr_telefone,
+            tp_sangue: values.tp_sangue,
+            dt_nascimento: values.dt_nascimento,
+        }).then((response) => {
+            console.log(response);
+        });
+    }
 
     const handleChangeValues = (value) => {
         setValues((prevValue) => ({
@@ -14,93 +25,106 @@ function Create(){
             [value.target.name]: value.target.value,
         }));
     };
-
-    const handleClickButton = () => {
-        console.log(values);
+    
+    const handleSubmit = (e) => {
+        console.log(e);
+        const form = e.currentTarget;
+        if (form.checkValidity() === false) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        setValues(true);
     }
 
-    useEffect(() => {
-        Axios.get("http://localhost:3000/user").then((response) => {
-            console.log(response);
-        });
-    }, []);
 
     return (
     <div class="container mt-3">  
-        <Form>
-            <div class="col-lg-6 mt-2">
+        <Form noValidate validated={values} onSubmit={handleSubmit}>
+            <Form.Group>
                 <Form.Label> CPF: </Form.Label>
                 <Form.Control 
-                type="text" 
-                id="cpf" 
-                class="form-control" 
-                onChange={handleChangeValues} 
-                name="cd_pessoa" 
-                placeholder="123.456.789-00"/>
-            </div>
+                    required
+                    type="text" 
+                    id="cpf" 
+                    class="form-control" 
+                    onChange={handleChangeValues} 
+                    name="cd_pessoa" 
+                    placeholder="123.456.789-00"
+                    required
+                    validation='Looks good!'
+                />
+            </Form.Group>
 
-            <div class="col-lg-6 mt-2">
+            <Form.Group>
                 <Form.Label> Nome: </Form.Label>
                 <Form.Control
-                 type="text" 
-                 class="form-control" 
-                 onChange={handleChangeValues} 
-                 name="nm_pessoa" 
-                 placeholder="Nome"/>
-            </div>
+                    required
+                    type="text" 
+                    class="form-control" 
+                    onChange={handleChangeValues} 
+                    name="nm_pessoa" 
+                    placeholder="Nome"
+                />
+            </Form.Group>
 
-            <div class="col-lg-6 mt-2">
+            <Form.Group>
                 <Form.Label> Sobrenome: </Form.Label>
-                <Form.Control 
-                type="text" 
-                class="form-control" 
-                onChange={handleChangeValues} 
-                name="nm_sobrenome" 
-                placeholder="Sobrenome"/>
-            </div>
+                <Form.Control
+                    type="text" 
+                    class="form-control" 
+                    onChange={handleChangeValues} 
+                    name="nm_sobrenome" 
+                    placeholder="Sobrenome"
+                />
+            </Form.Group>
 
-            <div class="col-lg-6 mt-2">
+            <Form.Group>
                 <Form.Label> Numero De Telefone: </Form.Label>
-                <Form.Control 
-                type="text" 
-                class="form-control" 
-                onChange={handleChangeValues} 
-                id="phone-mask" 
-                name="nr_telefone" 
-                for="typeNumber" 
-                placeholder="(00) 0.0000-0000"/>
-            </div>
+                <Form.Control
+                    type="text" 
+                    class="form-control" 
+                    onChange={handleChangeValues} 
+                    id="phone-mask" 
+                    name="nr_telefone" 
+                    for="typeNumber" 
+                    placeholder="(00) 0.0000-0000"
+                />
+            </Form.Group>
 
-            <div class="col-lg-6 mt-2">
+            <Form.Group>
                 <Form.Label> Tipo Sanguineo: </Form.Label>
-                <Form.Control 
-                type="text" 
-                class="form-control" 
-                onChange={handleChangeValues} 
-                name="tp_sangue" 
-                placeholder="Tipo Sanguineo"/>
-            </div>
+                <Form.Control
+                    type="text" 
+                    class="form-control" 
+                    onChange={handleChangeValues} 
+                    name="tp_sangue" 
+                    placeholder="Tipo Sanguineo"
+                />
+            </Form.Group>
 
-            <div class="col-lg-6 mt-2">
+            <Form.Group>
                 <Form.Label> Data de Nascimento: </Form.Label>
-                <Form.Control 
-                type="datetime-local" 
-                class="form-control" 
-                onChange={handleChangeValues}
-                name="dt_nascimento" 
-                placeholder="00/00/0000"/>
-            </div>
-
-            <div class="col-lg-4 mt-2">
-                <Button 
+                <Form.Control
+                    required
+                    type="datetime-local" 
+                    class="form-control" 
+                    onChange={handleChangeValues}
+                    name="dt_nascimento" 
+                    placeholder="00/00/0000"
+                />
+            </Form.Group>
+            
+            <Button 
                 class="btn btn-primary btn-lg"
-                onClick={() => handleClickButton()}
-                >Criar</Button>
-            </div>
+                type="submit"
+                onClick={(e) => handleClickButton(e)}
+                >Criar
+            </Button>
 
-            <div class="col-lg-4 mt-2">
-                <Button class="btn btn-primary btn-lg">Editar</Button>
-            </div>
+            <Button 
+                class="btn btn-primary btn-lg">Editar
+            </Button>
+            
         </Form>
     </div>);
 }
