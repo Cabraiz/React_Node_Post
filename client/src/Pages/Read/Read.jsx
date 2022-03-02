@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Axios from "axios";
 import {Table} from 'react-bootstrap'
 
-function Read(){    
-    return (
+function Read(){
+    const [values, setValues] = useState();
 
     
+    useEffect(() => {
+        Axios.get("http://localhost:3000/user").then((response) => {
+            setValues(response.data.data.rows);
+        });
+    }, []);
 
+    return (
     <Table striped bordered hover>
         <thead>
           <tr>
@@ -19,15 +26,17 @@ function Read(){
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-          </tr>
+            {typeof values!== "undefined" && values.map((values) => (
+            <tr>
+                <td>{1}</td>
+                <td>{values.cd_pessoa}</td>
+                <td>{values.nm_pessoa}</td>
+                <td>{values.nm_sobrenome}</td>
+                <td>{values.nr_telefone}</td>
+                <td>{values.tp_sangue}</td>
+                <td>{values.dt_nascimento}</td>
+            </tr>
+            ))}
         </tbody>
     </Table>);
 }
