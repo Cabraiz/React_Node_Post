@@ -1,12 +1,19 @@
 import './Read.css';
+import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import {Table} from 'react-bootstrap'
+import {Table, Button} from 'react-bootstrap'
 
 
 function Read(){
+    let navigate  = useNavigate();
+    
     const [values, setValues] = useState();
 
+    async function EditEvent(e) {
+        console.log(e);
+        navigate(`/create/${e.cd_pessoa}`, { cd_pessoa: e.cd_pessoa});
+    }
     
     useEffect(() => {
         Axios.get("http://localhost:3000/user").then((response) => {
@@ -96,8 +103,14 @@ function Read(){
                 <td>{values.dt_nascimento.slice(8, -14) + '/' + values.dt_nascimento.slice(5, -17) + '/' + values.dt_nascimento.slice(0, -20)}</td>
                 <td id="nopaddingtupla">
                 <div class="d-flex justify-content-between">
-                    <a id="btnEditar" class="btn btn-success">Editar</a> 
-                    <button id="btnRemove" class="btn btn-danger">Remover</button>
+                    
+                    <Button 
+                        onClick = {() => EditEvent(values)}
+                        id="btnEditar" 
+                        variant="success">Editar
+                    </Button>
+                    <Button 
+                        id="btnRemove" variant="danger">Remover</Button>
                 </div>
                 </td>
             </tr>

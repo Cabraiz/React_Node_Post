@@ -1,9 +1,20 @@
-import React, {useState} from "react";
+import { useParams } from "react-router-dom";
+import React, {useEffect, useState} from "react";
 import Axios from "axios";
 import {Button,Form} from 'react-bootstrap';
 
 function Create(){
     const [values, setValues] = useState();
+    let {id} = useParams();
+
+    useEffect(() => {
+        if (typeof id !== "undefined" && id.length) {
+            Axios.get("http://localhost:3000/user/" + id).then((response) => {
+                setValues(response);
+            });
+        }
+        
+    }, []);
 
     const handleClickButton = (e) => {
         e.preventDefault();
@@ -18,6 +29,21 @@ function Create(){
             console.log(response);
         });
     }
+
+    const handleEditButton = (e) => {
+        e.preventDefault();
+        Axios.post("http://localhost:3000/user",  {
+            cd_pessoa: values.cd_pessoa,
+            nm_pessoa: values.nm_pessoa,
+            nm_sobrenome: values.nm_sobrenome,
+            nr_telefone: values.nr_telefone,
+            tp_sangue: values.tp_sangue,
+            dt_nascimento: values.dt_nascimento,
+        }).then((response) => {
+            console.log(response);
+        });
+    }
+    
 
     const handleChangeValues = (value) => {
         setValues((prevValue) => ({

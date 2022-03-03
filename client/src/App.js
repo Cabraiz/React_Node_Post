@@ -66,6 +66,7 @@ function App() {
             <Routes>
               <Route path="/read" element={<Read />}/>
               <Route path="/create" element={<Create />}/>
+              <Route path="/create/:id" element={<Create />}/>
             </Routes>
           </Router>
       </div>

@@ -26,3 +26,8 @@
     font-size: calc(0.01rem + 1.2vw);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+svg{
+    margin-bottom: 1px;
+    width: calc(0.001rem + 1.2vw);
+}
