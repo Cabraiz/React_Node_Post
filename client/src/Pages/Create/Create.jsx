@@ -1,3 +1,4 @@
+import './Create.css';
 import { useParams } from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import Axios from "axios";
@@ -17,8 +18,10 @@ function Create(){
         dt_nascimento: '',
     });
     let {id} = useParams();
-
     
+    const classNameCreate = typeof id !== "undefined" && id.length ? 'hideThisButton' : '';
+    const classNameEdit = typeof id !== "undefined" && id.length ? '' : 'hideThisButton';
+
     useEffect(() => {
         if (typeof id !== "undefined" && id.length) {
             Axios.get("http://localhost:3000/user/" + id).then((response) => {
@@ -68,13 +71,6 @@ function Create(){
         });
     }
     
-
-    const handleChangeValues = (value) => {
-        setValues((prevValue) => ({
-            ...prevValue,
-            [value.target.name]: value.target.value,
-        }));
-    };
     
     const handleSubmit = (e) => {
         const form = e.currentTarget;
@@ -83,6 +79,13 @@ function Create(){
           e.stopPropagation();
         }
         setValues(true);
+    }
+
+    function handleChange(e) {
+        setValues((prevValue) => ({
+            ...prevValue,
+            [e.target.name]: e.target.value,
+        }));
     }
 
 
@@ -96,10 +99,10 @@ function Create(){
                     type="text" 
                     id="cpf" 
                     class="form-control" 
-                    onChange={handleChangeValues} 
                     name="cd_pessoa" 
                     placeholder="123.456.789-00"
                     {...register('cd_pessoa')}
+                    onChange={handleChange}
                 />
             </Form.Group>
 
@@ -109,10 +112,10 @@ function Create(){
                     required
                     type="text" 
                     class="form-control" 
-                    onChange={handleChangeValues} 
                     name="nm_pessoa" 
                     placeholder="Nome"
                     {...register('nm_pessoa')}
+                    onChange={handleChange}
                 />
             </Form.Group>
 
@@ -121,10 +124,10 @@ function Create(){
                 <Form.Control
                     type="text" 
                     class="form-control" 
-                    onChange={handleChangeValues} 
                     name="nm_sobrenome" 
                     placeholder="Sobrenome"
                     {...register('nm_sobrenome')}
+                    onChange={handleChange}
                 />
             </Form.Group>
 
@@ -132,13 +135,13 @@ function Create(){
                 <Form.Label> Numero De Telefone: </Form.Label>
                 <Form.Control
                     type="text" 
-                    class="form-control" 
-                    onChange={handleChangeValues} 
+                    class="form-control"
                     id="phone-mask" 
                     name="nr_telefone" 
                     for="typeNumber" 
                     placeholder="(00) 0.0000-0000"
                     {...register('nr_telefone')}
+                    onChange={handleChange}
                 />
             </Form.Group>
 
@@ -146,11 +149,11 @@ function Create(){
                 <Form.Label> Tipo Sanguineo: </Form.Label>
                 <Form.Control
                     type="text" 
-                    class="form-control" 
-                    onChange={handleChangeValues} 
+                    class="form-control"
                     name="tp_sangue" 
                     placeholder="Tipo Sanguineo"
                     {...register('tp_sangue')}
+                    onChange={handleChange}
                 />
             </Form.Group>
 
@@ -160,22 +163,27 @@ function Create(){
                     required
                     type="datetime-local" 
                     class="form-control" 
-                    onChange={handleChangeValues}
                     name="dt_nascimento" 
                     placeholder="00/00/0000"
                     {...register('dt_nascimento')}
+                    onChange={handleChange}
                 />
             </Form.Group>
             
             <Button 
-                class="btn btn-primary btn-lg"
+                className = {classNameCreate}
                 type="submit"
+                variant="primary mt-2"
+                size="lg"
                 onClick={(e) => handleClickButton(e)}
                 >Criar
             </Button>
 
             <Button 
-                class="btn btn-primary btn-lg">Editar
+                className = {classNameEdit}
+                variant="primary mt-2"
+                size="lg"
+                >Editar
             </Button>
             
         </Form>
