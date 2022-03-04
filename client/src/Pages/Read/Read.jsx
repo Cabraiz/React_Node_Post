@@ -11,7 +11,6 @@ function Read(){
     const [values, setValues] = useState();
 
     async function EditEvent(e) {
-        console.log(e);
         navigate(`/create/${e.cd_pessoa}`, { cd_pessoa: e.cd_pessoa});
     }
     
@@ -20,6 +19,12 @@ function Read(){
             setValues(response.data.data.rows);
         });
     }, []);
+
+    const handleDeleteClick = (e) => {
+        Axios.delete(`http://localhost:3000/user/${e.cd_pessoa}`);
+        const newList = values.filter((item) => item.cd_pessoa !== e.cd_pessoa);
+        setValues(newList);
+    }
 
     return (
     <Table striped bordered hover>
@@ -110,7 +115,9 @@ function Read(){
                         variant="success">Editar
                     </Button>
                     <Button 
-                        id="btnRemove" variant="danger">Remover</Button>
+                        onClick = {() => handleDeleteClick(values)}
+                        id="btnRemove" 
+                        variant="danger">Remover</Button>
                 </div>
                 </td>
             </tr>

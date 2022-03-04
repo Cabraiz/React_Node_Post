@@ -2,19 +2,43 @@ import { useParams } from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import Axios from "axios";
 import {Button,Form} from 'react-bootstrap';
+import { useForm } from "react-hook-form";
 
 function Create(){
+    const { register, reset } = useForm();
+
     const [values, setValues] = useState();
+    const [editvalues, setEditValues] = useState({
+        cd_pessoa: '',
+        nm_pessoa: '',
+        nm_sobrenome: '',
+        nr_telefone: '',
+        tp_sangue: '',
+        dt_nascimento: '',
+    });
     let {id} = useParams();
 
+    
     useEffect(() => {
         if (typeof id !== "undefined" && id.length) {
             Axios.get("http://localhost:3000/user/" + id).then((response) => {
-                setValues(response);
+                console.log(response.data.data.rows[0]);
+                setEditValues({
+                    cd_pessoa: response.data.data.rows[0].cd_pessoa, 
+                    nm_pessoa: response.data.data.rows[0].nm_pessoa,
+                    nm_sobrenome: response.data.data.rows[0].nm_sobrenome,
+                    nr_telefone: response.data.data.rows[0].nr_telefone,
+                    tp_sangue: response.data.data.rows[0].tp_sangue,
+                    dt_nascimento: response.data.data.rows[0].dt_nascimento
+                }) 
             });
+            console.log(editvalues.cd_pessoa);
         }
-        
     }, []);
+
+    useEffect(() => {
+        reset(editvalues);
+    }, [editvalues]);
 
     const handleClickButton = (e) => {
         e.preventDefault();
@@ -53,7 +77,6 @@ function Create(){
     };
     
     const handleSubmit = (e) => {
-        console.log(e);
         const form = e.currentTarget;
         if (form.checkValidity() === false) {
           e.preventDefault();
@@ -76,8 +99,7 @@ function Create(){
                     onChange={handleChangeValues} 
                     name="cd_pessoa" 
                     placeholder="123.456.789-00"
-                    required
-                    validation='Looks good!'
+                    {...register('cd_pessoa')}
                 />
             </Form.Group>
 
@@ -90,6 +112,7 @@ function Create(){
                     onChange={handleChangeValues} 
                     name="nm_pessoa" 
                     placeholder="Nome"
+                    {...register('nm_pessoa')}
                 />
             </Form.Group>
 
@@ -101,6 +124,7 @@ function Create(){
                     onChange={handleChangeValues} 
                     name="nm_sobrenome" 
                     placeholder="Sobrenome"
+                    {...register('nm_sobrenome')}
                 />
             </Form.Group>
 
@@ -114,6 +138,7 @@ function Create(){
                     name="nr_telefone" 
                     for="typeNumber" 
                     placeholder="(00) 0.0000-0000"
+                    {...register('nr_telefone')}
                 />
             </Form.Group>
 
@@ -125,6 +150,7 @@ function Create(){
                     onChange={handleChangeValues} 
                     name="tp_sangue" 
                     placeholder="Tipo Sanguineo"
+                    {...register('tp_sangue')}
                 />
             </Form.Group>
 
@@ -137,6 +163,7 @@ function Create(){
                     onChange={handleChangeValues}
                     name="dt_nascimento" 
                     placeholder="00/00/0000"
+                    {...register('dt_nascimento')}
                 />
             </Form.Group>
             

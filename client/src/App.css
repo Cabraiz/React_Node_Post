@@ -3,3 +3,6 @@ th, td {
     vertical-align: middle;
     font-size: calc(0.001rem + 1vw);
 }
+.navbar-custom {
+    background-color: #306d7d;
+}
