@@ -12,3 +12,15 @@ th, td {
     font-size: calc(0.001rem + 0.9vw);
     font-weight: 500;
 }
+input::-webkit-input-placeholder {
+    font-size: calc(0.001rem + 0.9vw);
+}
+.register{
+    font-size: 0.4em;
+    display:block;
+    margin-top: 6px;
+}
+.cabraiz{
+    margin-right: 0px;
+    font-size: calc(0.001rem + 1.7vw);
+}
