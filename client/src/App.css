@@ -6,6 +6,9 @@ th, td {
 .navbar-custom {
     background-color: #306d7d;
 }
-h6{
-    font-size: 10px;
+.topheader{
+    background-color: #224d58;
+    color: white;
+    font-size: calc(0.001rem + 0.9vw);
+    font-weight: 500;
 }
