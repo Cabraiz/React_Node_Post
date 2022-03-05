@@ -10,13 +10,16 @@ import Read from './Pages/Read/Read.jsx'
 function App() {
   return (
     <div className="App">
-      <div class="d-flex bd-highlight mb-1 mt-1">
-        <label id="leftheader" class="ms-2 me-auto"> (85) 99950.xxxx </label>
-        <label id="rightheader" class="ms-auto"> (85) 2250.xxxx </label>
-
-        <label id="" class="me-auto"> (85) 99950.xxxx </label>
-        <label id="" class="me-auto"> (85) 2250.xxxx </label>
-        <label id="" class="me-auto me-3"> (85) 99950.xxxx </label>
+      <div class="d-flex justify-content-between p-1 mt-1">
+        <div class="d-flex justify-content-start ms-3">
+          <label id="leftheader" class="ms-auto me-2">  <h6>(85) 99950.xxxx </h6></label>
+          <label id="rightheader" class="ms-auto"> <h6>(85) 2250.xxxx </h6></label>
+        </div>
+        <div class="d-flex justify-content-end me-3">
+          <label id="" class="me-auto"><h6> MEUS PEDIDOS </h6></label>
+          <label id="" class="me-auto ms-2"><h6> NOSSAS LOJAS </h6></label>
+          <label id="" class="me-auto ms-2"><h6> FALE CONOSCO </h6></label>
+        </div>
       </div>
       <Navbar bg="navbar navbar-custom" expand="lg" variant="dark">
         <Container fluid>
@@ -28,6 +31,15 @@ function App() {
               style={{ maxHeight: '100px' }}
               navbarScroll
             >
+              <Form className="d-flex">
+              <FormControl
+                type="search"
+                placeholder="Search"
+                className="me-2"
+                aria-label="Search"
+              />
+              <Button variant="outline-success">Search</Button>
+              </Form>
               <Nav.Link href="#action1">Home</Nav.Link>
               <Nav.Link href="#action2">Link</Nav.Link>
               <NavDropdown title="Link" id="navbarScrollingDropdown">
@@ -42,15 +54,7 @@ function App() {
                 Link
               </Nav.Link>
             </Nav>
-            <Form className="d-flex">
-              <FormControl
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-              />
-              <Button variant="outline-success">Search</Button>
-            </Form>
+            
           </Navbar.Collapse>
         </Container>
       </Navbar>

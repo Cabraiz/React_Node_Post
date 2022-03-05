@@ -32,10 +32,9 @@ function Create(){
                     nm_sobrenome: response.data.data.rows[0].nm_sobrenome,
                     nr_telefone: response.data.data.rows[0].nr_telefone,
                     tp_sangue: response.data.data.rows[0].tp_sangue,
-                    dt_nascimento: response.data.data.rows[0].dt_nascimento
+                    dt_nascimento: response.data.data.rows[0].dt_nascimento.slice(0, -5)
                 }) 
             });
-            console.log(editvalues.cd_pessoa);
         }
     }, []);
 
@@ -59,13 +58,13 @@ function Create(){
 
     const handleEditButton = (e) => {
         e.preventDefault();
-        Axios.post("http://localhost:3000/user",  {
-            cd_pessoa: values.cd_pessoa,
-            nm_pessoa: values.nm_pessoa,
-            nm_sobrenome: values.nm_sobrenome,
-            nr_telefone: values.nr_telefone,
-            tp_sangue: values.tp_sangue,
-            dt_nascimento: values.dt_nascimento,
+        Axios.put("http://localhost:3000/user/" + id,  {
+            cd_pessoa: editvalues.cd_pessoa,
+            nm_pessoa: editvalues.nm_pessoa,
+            nm_sobrenome: editvalues.nm_sobrenome,
+            nr_telefone: editvalues.nr_telefone,
+            tp_sangue: editvalues.tp_sangue,
+            dt_nascimento: editvalues.dt_nascimento,
         }).then((response) => {
             console.log(response);
         });
@@ -83,6 +82,11 @@ function Create(){
 
     function handleChange(e) {
         setValues((prevValue) => ({
+            ...prevValue,
+            [e.target.name]: e.target.value,
+        }));
+        
+        setEditValues((prevValue) => ({
             ...prevValue,
             [e.target.name]: e.target.value,
         }));
@@ -183,6 +187,7 @@ function Create(){
                 className = {classNameEdit}
                 variant="primary mt-2"
                 size="lg"
+                onClick={(e) => handleEditButton(e)}
                 >Editar
             </Button>
             
