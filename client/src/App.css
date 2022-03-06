@@ -22,5 +22,9 @@ input::-webkit-input-placeholder {
 }
 .cabraiz{
     margin-right: 0px;
-    font-size: calc(0.001rem + 1.7vw);
+    font-size: calc(0.001rem + 2vw);
+}
+.container2{
+    padding: 0px;
+    margin: 0px;
 }
