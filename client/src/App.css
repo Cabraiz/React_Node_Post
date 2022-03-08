@@ -18,13 +18,30 @@ input::-webkit-input-placeholder {
 .register{
     font-size: 0.4em;
     display:block;
-    margin-top: 6px;
+    margin-top: 9px;
 }
+
 .cabraiz{
     margin-right: 0px;
-    font-size: calc(0.001rem + 2vw);
+    font-size: 25px;
+}
+.cabraiz_2{
+    font-size: 10px;
+    display:block;
+    margin-left: 42px;
+    margin-top: -9px;
+    font-weight: bold;
 }
 .container2{
     padding: 0px;
     margin: 0px;
 }
+
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+form{
+    width: 650px;
+}
+
