@@ -9,8 +9,14 @@ th, td {
 .topheader{
     background-color: #224d58;
     color: white;
+}
+.topheader_left{
     font-size: calc(0.001rem + 0.9vw);
     font-weight: 500;
+}
+.topheader_right{
+    font-size: calc(0.001rem + 0.9vw);
+    font-weight: 400;
 }
 input::-webkit-input-placeholder {
     font-size: calc(0.001rem + 0.9vw);
@@ -18,10 +24,12 @@ input::-webkit-input-placeholder {
 .register{
     font-size: 0.4em;
     display:block;
-    margin-top: 9px;
+    margin-top: 18px;
+    margin-left: -17px;
 }
 
 .cabraiz{
+    margin-top: 10px;
     margin-right: 0px;
     font-size: 25px;
 }
@@ -41,7 +49,16 @@ input::-webkit-input-placeholder {
     display: block;
 }
 
+.logo{
+    display:block;
+    margin-top: 5px;
+}
+
 form{
     width: 650px;
+}
+
+.white{
+    color: white;
 }
 
