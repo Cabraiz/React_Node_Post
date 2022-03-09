@@ -65,3 +65,17 @@ form{
     color: white;
 }
 
+.navbar-custom_2{
+    background-color: #459db4;
+}
+
+.btn-itens {
+    background-color: #459db4 !important;
+    border: none!important;
+    transition: 1.5s!important;
+}
+.btn-itens:hover {
+    background-color: #306d7d!important;
+}
+
+

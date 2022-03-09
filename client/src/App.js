@@ -12,6 +12,8 @@ import {ReactComponent as SVG_Cell} from './Images/SVGS/Principal/TopHeader/SVG_
 
 import {ReactComponent as SVG_Logo} from './Images/SVGS/Principal/Nav/SVG_Logo.svg';
 
+import {ReactComponent as SVG_SmartPhone} from './Images/SVGS/Principal/Itens/SVG_SmartPhone.svg';
+
 import Create from './Pages/Create/Create.jsx'
 import Read from './Pages/Read/Read.jsx'  
 
@@ -19,7 +21,7 @@ function App() {
   return (
     <Container fluid className="p-0">
       <Container fluid className="topheader pt-2">
-        <Row>
+        <Row> 
           <Col className="topheader_left">
             <SVG_WPP className="ms-2"/>
             <Form.Label className="ms-auto me-3">(85) 2250.xxxx</Form.Label>
@@ -38,7 +40,7 @@ function App() {
       </Container>
       <Navbar bg="navbar navbar-custom pt-1 pb-1" variant="dark">
           <Container  fluid className="p-0">
-            <Nav className="d-flex justify-content-start ms-3"> 
+            <Nav className="ms-3"> 
               <SVG_Logo className='logo'/>
               <Navbar.Brand href="#">
                 <Form.Label className='cabraiz'>Cabraiz
@@ -75,12 +77,64 @@ function App() {
                 </Nav>
               </Navbar.Collapse>
             </Nav>
-            <Nav className="d-flex justify-content-end me-3">
+            <Nav className="me-3">
               <Nav.Link href="#home">Home</Nav.Link>
               <Nav.Link href="#features">Features</Nav.Link>
             </Nav>
           </Container>
       </Navbar>
+      <Container fluid className="navbar-custom_2">
+        <Col className="d-flex justify-content-between">
+          <Button className="btn-itens pt-2" href="#">
+            <Col>
+              <SVG_SmartPhone/>
+            </Col>
+            Smartphones
+          </Button>
+          <Button className="btn-itens pt-2" href="#">
+            <Col>
+              <SVG_SmartPhone/>
+            </Col>
+            Pneus & Auto
+          </Button>
+          <Button className="btn-itens pt-2" href="#">
+            <Col>
+              <SVG_SmartPhone/>
+            </Col>
+            Climatização
+          </Button>
+          <Button className="btn-itens pt-2" href="#">
+            <Col>
+              <SVG_SmartPhone/>
+            </Col>
+            Xiaomi
+          </Button> 
+          <Button className="btn-itens pt-2" href="#">
+            <Col>
+              <SVG_SmartPhone/>
+            </Col>
+            Notebooks
+          </Button> 
+          <Button className="btn-itens pt-2" href="#">
+            <Col>
+              <SVG_SmartPhone/>
+            </Col>
+            Eletrodomésticos
+          </Button>
+          <Button className="btn-itens pt-2" href="#">
+            <Col>
+              <SVG_SmartPhone/>
+            </Col>
+            Televisores
+          </Button>
+          <Button className="btn-itens pt-2" href="#">
+            <Col>
+              <SVG_SmartPhone/>
+            </Col>
+            Móveis
+          </Button>
+        </Col>
+      </Container>
       <Container  className="container mt-5 zp">
           <Router>
             <nav  class="container mb-3">
