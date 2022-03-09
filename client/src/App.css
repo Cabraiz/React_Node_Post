@@ -52,6 +52,9 @@ input::-webkit-input-placeholder {
 .logo{
     display:block;
     margin-top: 5px;
+    margin-left: -5px;
+    height: 60px;
+    width: 100px;
 }
 
 form{
