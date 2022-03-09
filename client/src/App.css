@@ -72,7 +72,7 @@ form{
 .btn-itens {
     background-color: #459db4 !important;
     border: none!important;
-    transition: 1.5s!important;
+    transition: 1.2s!important;
 }
 .btn-itens:hover {
     background-color: #306d7d!important;

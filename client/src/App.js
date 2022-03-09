@@ -1,8 +1,8 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/jquery/dist/jquery.min.js'
-import { BrowserRouter as Router,Routes,Route,Link } from "react-router-dom";
-import {Navbar, Container, Nav, NavDropdown, Form, FormControl, Button, Col, Row,} from 'react-bootstrap'
+import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom";
+import {Navbar, Container, Nav, NavDropdown, Form, FormControl, Button, Col, Row,Carousel,} from 'react-bootstrap'
 
 import {ReactComponent as SVG_WPP} from './Images/SVGS/Principal/TopHeader/SVG_WPP.svg';
 import {ReactComponent as SVG_Home} from './Images/SVGS/Principal/TopHeader/SVG_Home.svg';
@@ -135,6 +135,34 @@ function App() {
           </Button>
         </Col>
       </Container>
+      <Container fluid className="p-0">
+        <Carousel variant="dark">
+          <Carousel.Item>
+            <img
+              height="230px"
+              className="d-block w-100"
+              src="https://cache.marriott.com/marriottassets/marriott/LASTD/lastd-exterior-8448-hor-feat.jpg"
+              alt="First slide"
+            />
+          </Carousel.Item>
+          <Carousel.Item>
+            <img 
+              height="230px"
+              className="d-block w-100"
+              src="https://www.jangadaflatservice.com.br/assets/images/Imagem%20-%2008.jpg"
+              alt="Second slide"
+            />
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              height="230px"
+              className="d-block w-100"
+              src="https://photos.mandarinoriental.com/is/image/MandarinOriental/miami-exterior-via-bridge?crop=5,97,4954,2202&anchor=2482,1198"
+              alt="Third slide"
+            />
+          </Carousel.Item>
+        </Carousel>
+      </Container>
       <Container  className="container mt-5 zp">
           <Router>
             <nav  class="container mb-3">
@@ -142,7 +170,6 @@ function App() {
               &nbsp;
               <Link class="btn btn-primary" to="/read" > Ler Dados </Link>
             </nav>
-          
             <Routes>
               <Route path="/read" element={<Read />}/>
               <Route path="/create" element={<Create />}/>
