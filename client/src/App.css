@@ -3,6 +3,10 @@ th, td {
     vertical-align: middle;
     font-size: calc(0.001rem + 1vw);
 }
+.zerar{
+    margin: 0px!important;
+    padding: 0px!important;
+}
 .navbar-custom {
     background-color: #306d7d;
 }
@@ -22,6 +26,7 @@ input::-webkit-input-placeholder {
     font-size: calc(0.001rem + 0.9vw);
 }
 .register{
+    font-weight: 200;
     font-size: 0.4em;
     display:block;
     margin-top: 18px;
@@ -77,5 +82,49 @@ form{
 .btn-itens:hover {
     background-color: #306d7d!important;
 }
+.img {
+    object-fit: none!important;
+    max-height: 230px!important;
+    width: 100%!important;
+    object-position: 50% 50%!important;
+  }
 
-
+.rowcarrousel{
+    height: 230px;
+}
+.cropping{
+    height: 230px!important;
+    max-width: 100%!important;
+}
+.cropping-left{
+    object-fit: none!important;
+    height: initial!important;
+    max-width: 120px!important;
+    object-position: 0 0!important;
+    filter: blur(2px);
+    transform: scale(1.1); 
+}
+.cropping-right{
+    object-fit: none!important;
+    height: initial!important;
+    max-width: 120px!important;
+    object-position: 100% 0!important;
+    filter: blur(2px);
+    transform: scale(1.1);
+}
+.listaMenu{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.list-item{
+    font-weight: bold;
+    font-size: 3.5rem;
+    text-align: center;
+}
+li.borderless {
+    border-top: 0 none;
+  }
+.sizeCarnival{
+    height: 230px;
+}

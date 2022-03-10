@@ -2,7 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/jquery/dist/jquery.min.js'
 import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom";
-import {Navbar, Container, Nav, NavDropdown, Form, FormControl, Button, Col, Row,Carousel,} from 'react-bootstrap'
+import {Navbar, Container, Nav, NavDropdown, Form, FormControl, Button, Col, Row,Carousel,ListGroup,ListGroupItem} from 'react-bootstrap'
 
 import {ReactComponent as SVG_WPP} from './Images/SVGS/Principal/TopHeader/SVG_WPP.svg';
 import {ReactComponent as SVG_Home} from './Images/SVGS/Principal/TopHeader/SVG_Home.svg';
@@ -13,6 +13,8 @@ import {ReactComponent as SVG_Cell} from './Images/SVGS/Principal/TopHeader/SVG_
 import {ReactComponent as SVG_Logo} from './Images/SVGS/Principal/Nav/SVG_Logo.svg';
 
 import {ReactComponent as SVG_SmartPhone} from './Images/SVGS/Principal/Itens/SVG_SmartPhone.svg';
+
+import Gif from './Images/GIFS/FGif.gif';
 
 import Create from './Pages/Create/Create.jsx'
 import Read from './Pages/Read/Read.jsx'  
@@ -91,7 +93,7 @@ function App() {
             </Col>
             Smartphones
           </Button>
-          <Button className="btn-itens pt-2" href="#">
+          <Button style={{ whiteSpace: 'nowrap' }} className="btn-itens pt-2" href="#">
             <Col>
               <SVG_SmartPhone/>
             </Col>
@@ -136,30 +138,46 @@ function App() {
         </Col>
       </Container>
       <Container fluid className="p-0">
-        <Carousel variant="dark">
+        <Carousel variant="dark" className="sizeCarnival">
           <Carousel.Item>
-            <img
-              height="230px"
-              className="d-block w-100"
-              src="https://cache.marriott.com/marriottassets/marriott/LASTD/lastd-exterior-8448-hor-feat.jpg"
+            <img className="d-block img-fluid m-auto"
+              src="https://i.imgur.com/ei82s1k.png"
               alt="First slide"
             />
           </Carousel.Item>
           <Carousel.Item>
-            <img 
-              height="230px"
-              className="d-block w-100"
-              src="https://www.jangadaflatservice.com.br/assets/images/Imagem%20-%2008.jpg"
-              alt="Second slide"
-            />
+            <Col className="d-flex justify-content-around">
+              <ListGroup className="listaMenu ms-5">
+                <ListGroupItem className="list-item">BUGS</ListGroupItem>
+                <ListGroupItem className="list-item">TAKES</ListGroupItem>
+              </ListGroup>
+              <ListGroup className="listaMenu ms-5">
+                <ListGroupItem className="list-item">TIME</ListGroupItem>
+              </ListGroup>
+              <ListGroup className="listaMenu ms-5">
+                <ListGroupItem className="list-item">2</ListGroupItem>
+              </ListGroup>
+              <ListGroup className="listaMenu me-5">
+                <ListGroupItem className="list-item">FIX</ListGroupItem>
+                <ListGroupItem className="list-item">IT!</ListGroupItem>
+              </ListGroup>
+            </Col>
           </Carousel.Item>
           <Carousel.Item>
-            <img
-              height="230px"
-              className="d-block w-100"
-              src="https://photos.mandarinoriental.com/is/image/MandarinOriental/miami-exterior-via-bridge?crop=5,97,4954,2202&anchor=2482,1198"
-              alt="Third slide"
-            />
+              <Col className="d-flex justify-content-center">
+                <img className="d-block img-fluid cropping-left zerar"
+                  src={Gif}
+                  alt="Third slide"
+                />
+                <img className="d-block img-fluid cropping zerar"
+                  src={Gif}
+                  alt="Third slide"
+                />
+                <img className="d-block img-fluid cropping-right zerar"
+                  src={Gif}
+                  alt="Third slide"
+                />
+              </Col>
           </Carousel.Item>
         </Carousel>
       </Container>
