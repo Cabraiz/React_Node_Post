@@ -146,20 +146,20 @@ function App() {
             />
           </Carousel.Item>
           <Carousel.Item>
-            <Col className="d-flex justify-content-around">
+            <Col className="d-flex justify-content-around carrouselcolor">
               <ListGroup className="listaMenu ms-5">
-                <ListGroupItem className="list-item">BUGS</ListGroupItem>
-                <ListGroupItem className="list-item">TAKES</ListGroupItem>
+                <ListGroupItem data-text="BUGS" className="list-item">BUGS</ListGroupItem>
+                <ListGroupItem data-text="TAKES" className="list-item">TAKES</ListGroupItem>
               </ListGroup>
-              <ListGroup className="listaMenu ms-5">
+              <ListGroup>
                 <ListGroupItem className="list-item">TIME</ListGroupItem>
               </ListGroup>
-              <ListGroup className="listaMenu ms-5">
+              <ListGroup>
                 <ListGroupItem className="list-item">2</ListGroupItem>
               </ListGroup>
               <ListGroup className="listaMenu me-5">
-                <ListGroupItem className="list-item">FIX</ListGroupItem>
-                <ListGroupItem className="list-item">IT!</ListGroupItem>
+                <ListGroupItem data-text="FIX" className="list-item">FIX</ListGroupItem>
+                <ListGroupItem data-text="IT!" className="list-item">IT!</ListGroupItem>
               </ListGroup>
             </Col>
           </Carousel.Item>

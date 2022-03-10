@@ -1,3 +1,12 @@
+@font-face {
+    font-family: "AssistantRegular";
+    src: local("AssistantRegular"),
+      url("./Fonts/swiss-721.ttf") format("truetype");
+    font-weight: normal;
+  }
+:root{
+    --line-height: 1.5;
+}
 th, td {
     text-align: center;
     vertical-align: middle;
@@ -115,16 +124,41 @@ form{
 .listaMenu{
     margin: 0;
     padding: 0;
-    list-style: none;
+}
+.carrouselcolor{
+    background-image: linear-gradient(45deg,#1bbcec,#1bbcec, #4ad5fe)!important;
+    height: 230px!important;
+    padding-top: 20px;
+    margin: 0!important;
+    padding: 0!important;
 }
 .list-item{
+    display: flex;
+    flex-direction: column;
     font-weight: bold;
     font-size: 3.5rem;
     text-align: center;
+    color: #eefbfb!important;
+    background-color:transparent!important;
+    font-family: "AssistantRegular", Times, serif;
+    line-height: var(--line-height);
 }
-li.borderless {
-    border-top: 0 none;
-  }
+.list-item:hover{
+    height: calc(var(--line-height) * .62em);
+}
+.list-item:hover::before{
+    content: attr(data-text);
+    height: calc(var(--line-height) * .62em);
+    overflow: hidden;
+}
 .sizeCarnival{
     height: 230px;
+}
+.carousel-indicators button {
+    border-radius: 100%!important;
+    width: 11px!important;
+    height: 11px!important;
+    border-radius:50%!important;
+    border:2px solid white!important;
+    background-color: #1b3e48!important;
 }
