@@ -13,6 +13,7 @@ import {ReactComponent as SVG_Cell} from './Images/SVGS/Principal/TopHeader/SVG_
 import {ReactComponent as SVG_Logo} from './Images/SVGS/Principal/Nav/SVG_Logo.svg';
 
 import {ReactComponent as SVG_SmartPhone} from './Images/SVGS/Principal/Itens/SVG_SmartPhone.svg';
+import {ReactComponent as SVG_Computer} from './Images/SVGS/Principal/Itens/SVG_Computer.svg';
 
 import Gif from './Images/GIFS/FGif.gif';
 
@@ -40,7 +41,7 @@ function App() {
           </Col>
         </Row>
       </Container>
-      <Navbar bg="navbar navbar-custom pt-1 pb-1" variant="dark">
+      <Navbar bg="navbar navbar-custom pt-1 pb-0" variant="dark">
           <Container  fluid className="p-0">
             <Nav className="ms-3"> 
               <SVG_Logo className='logo'/>
@@ -87,49 +88,49 @@ function App() {
       </Navbar>
       <Container fluid className="navbar-custom_2">
         <Col className="d-flex justify-content-between">
-          <Button className="btn-itens pt-2" href="#">
+          <Button className="btn-itens" href="#">
             <Col>
               <SVG_SmartPhone/>
             </Col>
             Smartphones
           </Button>
-          <Button style={{ whiteSpace: 'nowrap' }} className="btn-itens pt-2" href="#">
+          <Button style={{ whiteSpace: 'nowrap' }} className="btn-itens" href="#">
             <Col>
               <SVG_SmartPhone/>
             </Col>
             Pneus & Auto
           </Button>
-          <Button className="btn-itens pt-2" href="#">
+          <Button className="btn-itens" href="#">
             <Col>
               <SVG_SmartPhone/>
             </Col>
             Climatização
           </Button>
-          <Button className="btn-itens pt-2" href="#">
+          <Button className="btn-itens" href="#">
             <Col>
               <SVG_SmartPhone/>
             </Col>
             Xiaomi
           </Button> 
-          <Button className="btn-itens pt-2" href="#">
+          <Button className="btn-itens" href="#">
             <Col>
-              <SVG_SmartPhone/>
+              <SVG_Computer/>
             </Col>
-            Notebooks
+            Computadores
           </Button> 
-          <Button className="btn-itens pt-2" href="#">
+          <Button className="btn-itens" href="#">
             <Col>
               <SVG_SmartPhone/>
             </Col>
             Eletrodomésticos
           </Button>
-          <Button className="btn-itens pt-2" href="#">
+          <Button className="btn-itens" href="#">
             <Col>
               <SVG_SmartPhone/>
             </Col>
             Televisores
           </Button>
-          <Button className="btn-itens pt-2" href="#">
+          <Button className="btn-itens" href="#">
             <Col>
               <SVG_SmartPhone/>
             </Col>

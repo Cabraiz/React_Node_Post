@@ -87,6 +87,8 @@ form{
     background-color: #459db4 !important;
     border: none!important;
     transition: 1.2s!important;
+    padding-top: 12px!important;
+    font-size: 16px!important;
 }
 .btn-itens:hover {
     background-color: #306d7d!important;
@@ -133,6 +135,7 @@ form{
     padding: 0!important;
 }
 .list-item{
+    border: 0!important;
     display: flex;
     flex-direction: column;
     font-weight: bold;
