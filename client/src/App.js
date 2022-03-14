@@ -20,6 +20,8 @@ import Gif from './Images/GIFS/FGif.gif';
 import Create from './Pages/Create/Create.jsx'
 import Read from './Pages/Read/Read.jsx'  
 
+import DoughnutChart from "./charts/Doughnut"
+
 function App() {
   return (
     <Container fluid className="p-0">
@@ -141,10 +143,9 @@ function App() {
       <Container fluid className="p-0">
         <Carousel variant="dark" className="sizeCarnival">
           <Carousel.Item>
-            <img className="d-block img-fluid m-auto"
-              src="https://i.imgur.com/ei82s1k.png"
-              alt="First slide"
-            />
+            <Col>
+              <DoughnutChart/>
+            </Col>
           </Carousel.Item>
           <Carousel.Item>
             <Col className="d-flex justify-content-around carrouselcolor">
@@ -184,10 +185,10 @@ function App() {
       </Container>
       <Container  className="container mt-5 zp">
           <Router>
-            <nav  class="container mb-3">
-              <Link class="btn btn-success" to="/create"> Criar Dados </Link>
+            <nav  className="container mb-3">
+              <Link className="btn btn-success" to="/create"> Criar Dados </Link>
               &nbsp;
-              <Link class="btn btn-primary" to="/read" > Ler Dados </Link>
+              <Link className="btn btn-primary" to="/read" > Ler Dados </Link>
             </nav>
             <Routes>
               <Route path="/read" element={<Read />}/>
