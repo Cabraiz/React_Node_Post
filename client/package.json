@@ -9,6 +9,7 @@
     "axios": "^0.26.0",
     "browserslist": "^4.19.3",
     "chart.js": "^3.7.1",
+    "chartjs-plugin-datalabels": "^2.0.0-rc.1",
     "currency-converter-lt": "^1.2.4",
     "dependencies": "^0.0.1",
     "jquery": "^3.6.0",
