@@ -1,6 +1,7 @@
 import { Line } from 'react-chartjs-2';
 import './Chart.css';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import {Container, Col, Row, Form,} from 'react-bootstrap'
 
 import {
     Chart as ChartJS,
@@ -24,34 +25,8 @@ import {
         ChartDataLabels,
     );
     
-    ChartJS.defaults.set('plugins.datalabels', {
-        color: '#FE777B',
-    });
 
-    const options = {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            legend: {
-                display: false,
-            },
-            datalabels:{
-                offset:2,
-                align: 'end',
-            },
-            
-        },
-        scales: {
-            y: {
-                max: 55,
-                min: 10,
-                ticks: {
-                    stepSize: 5
-                }
-            }
-        },
-      };
-
+    
     const data = {
     plugins: [ChartDataLabels],
     labels: ["2018", "2019", "2020", "2021",],
@@ -91,14 +66,84 @@ import {
     ]
   };
   
+  const options = {
+    
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+        legend: {
+            display: false,
+        },
+        datalabels:{
+            textStrokeWidth:1.1,
+            textStrokeColor:'#00000066',
+            color: '#FFFFFF',
+            align: 'end',
+            font: {
+              family: "'martiniExtra'",
+              size: 15,
+            },
+            formatter: (value) => {
+              let percentage = value + '%';
+              return percentage;
+            },
+        },
+    },
+    scales: {
+        y: {
+            grid: {
+              drawBorder: false,
+              color: '#FFFFFF66'
+            },
+            align: 'start',
+            max: 55,
+            min: 10,
+            ticks: {
+                padding: 15,
+                color:"white",
+                stepSize: 5,
+                font: {
+                  size: 18,
+                }
+            }
+        },
+        x: {
+          grid: {
+            drawBorder: false,
+            color: '#FFFFFF66'
+          },
+          ticks: {
+              color:"white",
+              font: {
+                size: 18,
+              }
+          }
+      },
+    },
+  };
+
 
 function DoughnutChart(){
     return(
-        <div> 
-            <div style={{width: "auto", height: "230px", margin: "0 auto", paddingTop: "20px", paddingLeft: "40px", paddingRight: "40px",}}>
-                <Line data={data} options={options}/>
-            </div>
-        </div> 
+      <Container fluid className="p-0" >
+        <Row >
+            <Col sm={8} className='backgroundcolorleft'>
+                <Line data={data} options={options} className='ms-4 ps-4 me-4 mb-2'/>
+            </Col>  
+            <Col sm={4} className='backgroundcolorright'>
+              <Col className='ms-4 mt-4'>
+                <Row></Row>
+                <Row> <h4>Web frameworks</h4></Row>
+                <Row> <h7>Porcentagem Por Uso Anual</h7></Row>
+                <Row> </Row>
+                <Row> <h6>Angular</h6> </Row>
+                <Row> <h6>jQuery</h6> </Row>
+                <Row> <h6>React.Js</h6> </Row>
+                <Row> <h6>Vue.Js</h6></Row>
+              </Col>
+            </Col>
+        </Row> 
+        </Container>
     );   
 }
 

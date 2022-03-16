@@ -1,3 +1,11 @@
-.principal{
-    margin-top: 0;
+.backgroundcolorleft{
+    background-color: #0d142d;
+    height: 230px;
+}
+
+.backgroundcolorright{
+    font-weight: 400;
+    background-color: #141c39;
+    color: white;
+    height: 230px;
 }

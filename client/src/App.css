@@ -1,9 +1,15 @@
 @font-face {
-    font-family: "AssistantRegular";
-    src: local("AssistantRegular"),
+    font-family: "Swiss";
+    src: local("Swiss"),
       url("./Fonts/swiss-721.ttf") format("truetype");
     font-weight: normal;
-  }
+}
+@font-face {
+    font-family: "martiniExtra";
+    src: local("martiniExtra"),
+      url("./Fonts/martini-extra-bold.ttf") format("truetype");
+    font-weight: normal;
+}
 :root{
     --line-height: 1.5;
 }
@@ -143,7 +149,7 @@ form{
     text-align: center;
     color: #eefbfb!important;
     background-color:transparent!important;
-    font-family: "AssistantRegular", Times, serif;
+    font-family: "Swiss", Times, serif;
     line-height: var(--line-height);
 }
 .list-item:hover{
