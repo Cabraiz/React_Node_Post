@@ -22,12 +22,19 @@ th, td {
     margin: 0px!important;
     padding: 0px!important;
 }
-.navbar-custom {
-    background-color: #306d7d;
-}
 .topheader{
     background-color: #224d58;
     color: white;
+    
+}
+.navbar-custom {
+    background-color: #306d7d;
+}
+.navbar-custom_2{
+    background-color: #459db4;
+}
+.navbar-custom_3{
+    background-color: #306d7d;
 }
 .topheader_left{
     font-size: calc(0.001rem + 0.9vw);
@@ -84,11 +91,6 @@ form{
 .white{
     color: white;
 }
-
-.navbar-custom_2{
-    background-color: #459db4;
-}
-
 .btn-itens {
     background-color: #459db4 !important;
     border: none!important;
@@ -170,4 +172,20 @@ form{
     border-radius:50%!important;
     border:2px solid white!important;
     background-color: #1b3e48!important;
+}
+.carousel-inner .carousel-item {
+    transition: transform 1s ease;
+}
+
+.carousel-control-prev-icon {
+    height: 4vw !important;
+    width: 4vw !important;
+    margin-left: -8vw!important;
+    animation: fadeInOpacity ease 10s;
+}
+.carousel-control-next-icon{
+    height: 4vw !important;
+    width: 4vw !important;
+    margin-left: 8vw!important;
+    animation: fadeInOpacity ease 10s;
 }
